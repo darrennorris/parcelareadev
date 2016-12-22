@@ -8,4 +8,4 @@ Install development version from github.
 
 2. Use devtools to install the parcelareadev package from github: `devtools::install_github("darrennorris/parcelareadev")` .
 
-3. load: `library("rppbio")`
+3. load: `library("parcelareadev")`
