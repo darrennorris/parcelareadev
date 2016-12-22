@@ -1,2 +1,2 @@
-# parcelareadev
-R functions. Nonlinear plot processing and area calculations
+# parcelarea_dev
+R functions. Development of nonlinear plot area calculations and processing
