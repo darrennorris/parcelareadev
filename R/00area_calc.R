@@ -28,7 +28,8 @@
 #' area_epsg = 3395)
 #' 
 #' # Calculate area and export results
-#' df.resumo <- parcelareadev::area_results(results_list = list_res)
+#' df.resumo <- parcelareadev::area_results(results_list = list_res, 
+#'                        make_shape = FALSE)
 #' }
 area_calc <- function(data_in, faixa_dist = c(0.5, 10, 20, 22),
                       faixa_lado = c(1.5, 2, 10, 21.5, 22),
