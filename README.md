@@ -1,7 +1,9 @@
 # parcelareadev
-R functions. Development of nonlinear RAPELD plot area calculations and processing. 
+R functions. Development of nonlinear RAPELD plot area calculations and processing.
+
 RAPELD and environmental monitroing: https://ppbio.inpa.gov.br/en/Biodiversity_and_Integrated
-Chapter 3, Download:
+
+Brief intro to RAPELD, Chapter 3, Download:
 http://ppbio.inpa.gov.br/sites/default/files/Biodiversidade%20e%20monitoramento%20ambiental%20integrado.pdf
 
 Takes compass bearings and distances recorded during plot installation
