@@ -41,6 +41,13 @@ area_epsg = 3395)
 # Calculate area and export results
 df.resumo <- parcelareadev::area_results(results_list = list_res, 
                        make_shape = FALSE)
+
+# Now shift central line to geographic coordinates 
+# and export as shapefiles and KML for visualization and checking
+data("br319coords")
+pc <- br319coords
+parcelareadev::exp_results(results_list = list_res, 
+                           pcoords = pc, exp_KML = TRUE) 
 }
 }
 

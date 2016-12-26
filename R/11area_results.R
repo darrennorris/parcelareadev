@@ -15,16 +15,23 @@
 #' data(br319)
 #' dados_in <- br319
 #' 
-#' # calculate area for specified widths
+#' # Generate lines and polygons for specified widths
 #' list_res <- parcelareadev::area_calc(
 #' data_in = dados_in, 
 #' faixa_dist = c(0.5, 1, 3,12, 10, 20, 21, 22),
 #' faixa_lado = c(0.5, 1, 3,12, 10, 20, 21, 22),
 #' area_epsg = 3395)
 #' 
-#' # produce results
+#' # Calculate area and export results
 #' df.resumo <- parcelareadev::area_results(results_list = list_res,
 #'                                         make_shape = FALSE)
+#'                                         
+#' # Now shift central line to geographic coordinates 
+#' # and export as shapefiles and KML for visualization and checking
+#' data("br319coords")
+#' pc <- br319coords
+#' parcelareadev::exp_results(results_list = list_res, 
+#'                            pcoords = pc, exp_KML = TRUE)                                       
 #' }
 area_results <- function(results_list = list_res, make_shape = FALSE){
    # check results valid
@@ -52,6 +59,7 @@ area_results <- function(results_list = list_res, make_shape = FALSE){
   # 3 Resultados
   ## 3.1 resumo das parcelas: 
   # resultado = uma data.frame "df.resumo" com area em m2
+  wdorig <- getwd()
   df.resumo <- ldply(results_list,.fun = parcelareadev::out_resumo)
   
     # com parallel, need to update
@@ -88,6 +96,7 @@ area_results <- function(results_list = list_res, make_shape = FALSE){
     exps <- lapply(results_list, FUN = parcelareadev::expshape )
   }
   
+  setwd(wdorig)
   return(df.resumo)
 
 }

@@ -34,3 +34,17 @@
 #' }
 #' 
 "br319res"
+#' Geographic coordiantes from 9 PPBIO plots along the BR319 in Brazil.
+#'
+#' A dataset containing geographic coordinates of the start point of 9 nonlinear plots:
+#' M01_TN_0500, M01_TN_3500, M02_TN_1500, M06_TS_0500, M02_TN_0500, M02_TN_2500,
+#' M02_TS_0500, M03_TN_2500, M09_TN_1500 .
+#'
+#' @format A data frame with 3 rows and 3 variables:
+#' \describe{
+#'   \item{PLOT_ID}{ID code, unique for each plot.}
+#'   \item{LONG}{Longitude (x), decimal degrees, WGS84, epsg=4326.}
+#'   \item{LAT}{Latitude (y), decimal degrees, WGS84, epsg=4326.}
+#' }
+#' @source \url{http://ppbio.inpa.gov.br/sites/default/files/SIG_oficial_BR319.zip} 
+"br319coords"

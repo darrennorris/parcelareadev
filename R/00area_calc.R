@@ -30,17 +30,17 @@
 #' # Calculate area and export results
 #' df.resumo <- parcelareadev::area_results(results_list = list_res, 
 #'                        make_shape = FALSE)
+#' 
+#' # Now shift central line to geographic coordinates 
+#' # and export as shapefiles and KML for visualization and checking
+#' data("br319coords")
+#' pc <- br319coords
+#' parcelareadev::exp_results(results_list = list_res, 
+#'                            pcoords = pc, exp_KML = TRUE) 
 #' }
 area_calc <- function(data_in, faixa_dist = c(0.5, 10, 20, 22),
                       faixa_lado = c(1.5, 2, 10, 21.5, 22),
                       area_epsg = 3395){
-  
-  #source("01checkAngle.R")
-  #source("02getCoords.R")
-  #source("03makeSeg.R")
-  #source("04doLine.R")
-  #source("05doBuff.R")
-  #source("06makeLado.R")
   
   require(plyr)
   require(dplyr)
