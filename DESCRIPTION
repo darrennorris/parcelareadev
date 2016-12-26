@@ -4,14 +4,14 @@ Title: To test and develop parcel area calculations
 Version: 0.1.0
 Author: Darren Norris
 Maintainer: Darren Norris <dnorris75@gmail.com>
-Description: Idea to provide simple interface for calculating parcel areas for ppbio.
+Description: Idea to provide simple interface for calculating RAPELD parcel areas for ppbio.
   Not pretty but it works.
   Takes compass bearings and distances recorded during plot installation
-and then: 
-1) derives coordinates and calculates the survey area of nonlinear plots.
-2) exports .pdf files showing plots
-3) exports calculated areas as .csv
-4) Exports plot lines as shapefiles and .kml
+  and then: 
+  1) derives coordinates and calculates the survey area of nonlinear plots.
+  2) exports .pdf files showing plots
+  3) exports calculated areas as .csv
+  4) Exports plot lines as shapefiles and .kml
 Imports:
     graphics,
     stats,
