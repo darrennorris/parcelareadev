@@ -42,9 +42,9 @@ check_linha <- function(x){
   am <- paste("rm.angulo.dist:", toString((dfa$seg_id-1)*10))
   tm <- paste("rm.trilha.dist:", toString((dft$seg_id-1)*10))
   myt <- paste(tit,"\n(",am,";", tm, ")", collapse = "\n")
-  
+  mycol <- ifelse(linha$removeF==0,NA,linha$removeF)
   plot(linha, lty=5,lwd=2.8, col="grey")
-  plot(linha, col= linha$removeF, lwd=3.8, add=TRUE)
+  plot(linha, col= mycol, lwd=3.8, add=TRUE)
   plot(dfp_e, add=TRUE)
   plot(dfp_sf, pch=21, bg = dfp_sf$mycol, cex = 1.5, add=TRUE)
   text(coordinates(dfp_e)[,1], coordinates(dfp_e)[,2], labels = dfp_e$dist_m,
