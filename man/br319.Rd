@@ -3,8 +3,8 @@
 \docType{data}
 \name{br319}
 \alias{br319}
-\title{Data from 9 PPBIO plots along the BR319 in Brazil.}
-\format{A data frame with 264 rows and 6 variables:
+\title{Data from 5 PPBIO plots along the BR319 in Brazil.}
+\format{A data frame with 138 rows and 6 variables:
 \describe{
   \item{aid}{unique rowid, for data checking.}
   \item{plot_id}{ID code, unique for each plot.}
@@ -20,9 +20,8 @@
 br319
 }
 \description{
-A dataset containing the azimuth and length of segments from 9 plots:
-M01_TN_0500, M01_TN_3500, M02_TN_1500, M06_TS_0500, M02_TN_0500, M02_TN_2500,
-M02_TS_0500, M03_TN_2500, M09_TN_1500 .
+A dataset containing the azimuth and length of segments from 5 plots:
+"M01_TN_0500", "M02_TN_0500","M02_TN_2500","M03_TN_1500", "M03_TN_2500"
 }
 \keyword{datasets}
 

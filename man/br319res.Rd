@@ -3,8 +3,8 @@
 \docType{data}
 \name{br319res}
 \alias{br319res}
-\title{Calculated areas from 9 PPBIO plots along the BR319 in Brazil.}
-\format{A data frame with 864 rows and 8 variables:
+\title{Calculated areas from 5 PPBIO plots along the BR319 in Brazil.}
+\format{A data frame with 440 rows and 8 variables:
 \describe{
   \item{.id}{ID code, unique for each plot.}
   \item{variable}{Indicates which segments were used (4 types).}
@@ -19,9 +19,8 @@
 br319res
 }
 \description{
-A dataset containing the calculated area (m2) from 9 nonlinear plots:
-M01_TN_0500, M01_TN_3500, M02_TN_1500, M06_TS_0500, M02_TN_0500, M02_TN_2500,
-M02_TS_0500, M03_TN_2500, M09_TN_1500 .
+A dataset containing the calculated area (m2) from 5 nonlinear plots:
+"M01_TN_0500", "M02_TN_0500","M02_TN_2500","M03_TN_1500", "M03_TN_2500"
 }
 \keyword{datasets}
 

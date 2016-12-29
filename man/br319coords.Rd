@@ -3,8 +3,8 @@
 \docType{data}
 \name{br319coords}
 \alias{br319coords}
-\title{Geographic coordiantes from 9 PPBIO plots along the BR319 in Brazil.}
-\format{A data frame with 3 rows and 3 variables:
+\title{Geographic coordiantes from 5 PPBIO plots along the BR319 in Brazil.}
+\format{A data frame with 5 rows and 3 variables:
 \describe{
   \item{PLOT_ID}{ID code, unique for each plot.}
   \item{LONG}{Longitude (x), decimal degrees, WGS84, epsg=4326.}
@@ -17,9 +17,8 @@
 br319coords
 }
 \description{
-A dataset containing geographic coordinates of the start point of 9 nonlinear plots:
-M01_TN_0500, M01_TN_3500, M02_TN_1500, M06_TS_0500, M02_TN_0500, M02_TN_2500,
-M02_TS_0500, M03_TN_2500, M09_TN_1500 .
+A dataset containing geographic coordinates of the start point of 5 nonlinear plots:
+"M01_TN_0500", "M02_TN_0500","M02_TN_2500","M03_TN_1500", "M03_TN_2500"
 }
 \keyword{datasets}
 
