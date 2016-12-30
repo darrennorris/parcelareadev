@@ -4,6 +4,8 @@ Title: To test and develop parcel area calculations
 Version: 0.1.0
 Author: Darren Norris
 Maintainer: Darren Norris <dnorris75@gmail.com>
+URL: https://github.com/darrennorris/parcelareadev
+BugReports: https://github.com/darrennorris/parcelareadev/issues
 Description: Idea to provide simple interface for calculating RAPELD parcel areas for ppbio.
   Not pretty but it works.
   Takes compass bearings and distances recorded during plot installation
