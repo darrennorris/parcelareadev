@@ -14,6 +14,8 @@ Description: Idea to provide simple interface for calculating RAPELD parcel area
   2) exports .pdf files showing plots
   3) exports calculated areas as .csv
   4) Exports plot lines as shapefiles and .kml
+Depends:
+    R (>= 2.10)
 Imports:
     graphics,
     stats,
