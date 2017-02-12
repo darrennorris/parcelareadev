@@ -24,4 +24,3 @@ A dataset containing the azimuth and length of segments from 5 plots:
 "M01_TN_0500", "M02_TN_0500","M02_TN_2500","M03_TN_1500", "M03_TN_2500"
 }
 \keyword{datasets}
-

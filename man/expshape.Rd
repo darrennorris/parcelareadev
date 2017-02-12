@@ -22,4 +22,3 @@ Should not be called directly by users.
 \dontrun{
 }
 }
-

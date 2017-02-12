@@ -50,4 +50,3 @@ parcelareadev::exp_results(results_list = list_res,
                            pcoords = pc, exp_KML = TRUE) 
 }
 }
-

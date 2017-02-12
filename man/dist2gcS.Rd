@@ -31,4 +31,3 @@ So returns signed values to indicate left or right, as used by \code{makelado}.
 \dontrun{
 }
 }
-

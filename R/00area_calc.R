@@ -42,6 +42,17 @@ area_calc <- function(data_in, faixa_dist = c(0.5, 10, 20, 22),
                       faixa_lado = c(1.5, 2, 10, 21.5, 22),
                       area_epsg = 3395){
   
+  if(length(names(data_in)) < 6){
+    stop("Input data format incorrect. Input data has too few columns.")
+  }
+  
+  if(length(names(data_in)) > 6){
+    stop("Input data format incorrect. Input data has too many columns.")
+  }
+  
+  
+  data_in <- na.omit(data_in)
+  
   require(plyr)
   require(dplyr)
   #2  Fazer

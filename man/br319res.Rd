@@ -23,4 +23,3 @@ A dataset containing the calculated area (m2) from 5 nonlinear plots:
 "M01_TN_0500", "M02_TN_0500","M02_TN_2500","M03_TN_1500", "M03_TN_2500"
 }
 \keyword{datasets}
-
