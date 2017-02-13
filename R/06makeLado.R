@@ -75,10 +75,12 @@ mb <- function(x, myl = lsec, myl2 = lfull, myl3 = lsec2){
     dfout
   }
   
-  dout <- ddply(dfp, .(plot_id, aid, id_lado,point_x, point_y), .fun = pdist)
+  dout <- plyr::ddply(dfp, c("plot_id", "aid", "id_lado",
+                            "point_x", "point_y"),
+                      .fun = pdist)
   dout$lado <- ifelse(dout$p_dist < 0 ,"left", "right")
-  require(plyr)
-  dout <- ddply(dout, .(plot_id, lado), summarise, 
+  
+  dout <- plyr::ddply(dout, c("plot_id", "lado"), plyr::summarise, 
                 point_x = mean(na.omit(point_x)), 
                 point_y = mean(na.omit(point_y)) 
   )
@@ -129,8 +131,8 @@ mb <- function(x, myl = lsec, myl2 = lfull, myl3 = lsec2){
   
   lado_buff <- spdf_union
 }
-require(plyr);require(dplyr)
-lado_all <- dlply(dfb, c("bufnames"), .fun = mb)
+
+lado_all <- plyr::dlply(dfb, c("bufnames"), .fun = mb)
 }
 
 outbuflado <- lapply(l, FUN = myline)

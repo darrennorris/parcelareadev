@@ -13,7 +13,7 @@
 #'
 #' @return List of data and spatial (lines and polygons).
 #' @export
-#'
+#' @importFrom stats na.omit
 #' @examples
 #' \dontrun{
 #' # Example with required data format
@@ -50,28 +50,29 @@ area_calc <- function(data_in, faixa_dist = c(0.5, 10, 20, 22),
     stop("Input data format incorrect. Input data has too many columns.")
   }
   
-  
   data_in <- na.omit(data_in)
   
-  require(plyr)
-  require(dplyr)
   #2  Fazer
   ## 2.1 #### indentificar se angulo entre segementos eh <70 
   # resultado = data.frame com novas colunas: "remove_angulo" "remove_all"
-  df.azi <- ddply(data_in,c("plot_id"),.fun = parcelareadev::checkAngle)
+  df.azi <- plyr::ddply(data_in,c("plot_id"),
+                        .fun = parcelareadev::checkAngle)
   
   ## 2.2 #### coordenados linha central
   # resultado = data.frame com os coordenados da liha central nas parcelas
-  df.CoordsCentral <- ddply(df.azi,c("plot_id"),.fun = parcelareadev::getCoords)
+  df.CoordsCentral <- plyr::ddply(df.azi,c("plot_id"),
+                                  .fun = parcelareadev::getCoords)
   
   ## 2.3 ##### fazer segmentos 
   # resultado = dataframe identificando segmentos antes e depois "remove" = 1  
-  df.seg <- ddply(df.CoordsCentral, c("plot_id"),.fun = parcelareadev::makeSeg)
+  df.seg <- plyr::ddply(df.CoordsCentral, c("plot_id"),
+                        .fun = parcelareadev::makeSeg)
   
   ## 2.4 ##### linha  central
   # resultado = uma lista de "spatial lines" 
   # com a linha central para as parcelas
-  sp.LinhaCentral <- dlply(df.seg, c("plot_id"), .fun = parcelareadev::doLine)
+  sp.LinhaCentral <- plyr::dlply(df.seg, c("plot_id"), 
+                           .fun = parcelareadev::doLine)
   
   ## 2.5 ##### Amostragens simetricas
   # buffers (faixas) somando ambos os lados 
@@ -90,20 +91,20 @@ area_calc <- function(data_in, faixa_dist = c(0.5, 10, 20, 22),
   # 2.7 Tratamento:
   # gerando uma lista com os dados (dataframes), 
   # linhas (spatiallines) e faixas (polygons)
-  library(rlist)
+  #library(rlist)
   list_res <- rlist::list.merge(sp.LinhaCentral, 
                          sp.Buff,
                          sp_buff_lado,
-                         dlply(dados_in, 'plot_id',function(x){
+                         plyr::dlply(data_in, 'plot_id',function(x){
                            l1<- list(data = list(input = x))
                          }),
-                         dlply(df.CoordsCentral, 'plot_id',function(x){
+                         plyr::dlply(df.CoordsCentral, 'plot_id',function(x){
                            l1<- list(data = list(coords = x))
                          }),
-                         dlply(df.azi, 'plot_id',function(x){
+                         plyr::dlply(df.azi, 'plot_id',function(x){
                            l1<- list(data = list(azi = x))
                          }),
-                         dlply(df.seg, 'plot_id',function(x){
+                         plyr::dlply(df.seg, 'plot_id',function(x){
                            l1<- list(data = list(lineseg = x))
                          })
   )

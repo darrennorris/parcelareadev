@@ -13,8 +13,6 @@
 #' }
 checkAngle <- function(x){
 # em funcao das 2 azimutes....## 
-
-
 brt <- x
 
 brt <-  dplyr::mutate(brt, 
@@ -22,7 +20,7 @@ brt <-  dplyr::mutate(brt,
                ret_az = azimute - 180
 )
 
-df.ang <- plyr::ddply(brt,c("seg_id"), .fun = correctAng)
+df.ang <- plyr::ddply(brt,c("seg_id"), .fun = parcelareadev::correctAng)
 brt <- merge(brt,df.ang)
 
 # here identifies which angles are less than 70, based on differences in bearings

@@ -13,7 +13,7 @@
 #' \dontrun{
 #' }
 out_resumo <- function(list.poly) {
-  require(plyr);require(dplyr);require(sp)
+  require(sp)
  # area simetrica
   l1 <- list(buff_SpatialLinesAll = list.poly$buff_SpatialLinesAll,
              buff_SpatialLinesRemoveTrilha = list.poly$buff_SpatialLinesRemoveTrilha,
@@ -29,11 +29,11 @@ out_resumo <- function(list.poly) {
       mydata <- data.frame(area_m2 = myarea)
     }
     
-    oudata <- ldply(x,.fun = areacalc)
+    oudata <- plyr::ldply(x,.fun = areacalc)
     
   }
 
- area_parcela <- llply(l1,.fun = getarea)
+ area_parcela <- plyr::llply(l1,.fun = getarea)
  od <- data.frame(area_parcela)
  
  #area asimetrica
@@ -65,11 +65,11 @@ getlado <- function(x){
 
   }
   
-  oudata <- ldply(x, .fun = areacalc)  
+  oudata <- plyr::ldply(x, .fun = areacalc)  
 }
 
 # run function
-area_lado <- llply(l2, .fun = getlado)
+area_lado <- plyr::llply(l2, .fun = getlado)
 
 df1 <- data.frame(area_lado)
 
@@ -129,7 +129,7 @@ df1 <- data.frame(area_lado)
                               area_m2 = df1$ladobuff_SpatialLinesRemoveAll.area_m2,
                               seg_count = seg_count_rall) 
   )
-  require(stringr)
+  
   outbuff$faixa_tipo <- stringr::str_split_fixed(outbuff$faixa_id, "_", 2)[,1]  
   outbuff$faixa_dist <- stringr::str_split_fixed(outbuff$faixa_id, "_", 2)[,2]
   outbuff

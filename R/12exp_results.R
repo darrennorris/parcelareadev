@@ -34,7 +34,7 @@
 #' parcelareadev::exp_results(results_list = list_res, 
 #'                            pcoords = pc, exp_KML = TRUE)                                         
 #' }
-exp_results <- function(results_list = list_res, pcoords = pcoords, exp_KML = TRUE){
+exp_results <- function(results_list, pcoords, exp_KML = TRUE){
    # check results valid
    if(class(results_list)=="logical" | 
      class(names(results_list))=="logical" |

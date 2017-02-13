@@ -42,8 +42,8 @@ mb <- function(x, myl = lsec ){
   proj4string(gb) <- CRS(mycrs)
   all_buff <- gb
 }
-require(plyr);require(dplyr)
-buff_all <- dlply(dfb, c("bufnames"), .fun = mb)
+
+buff_all <- plyr::dlply(dfb, c("bufnames"), .fun = mb)
 }
 
 outbuf <- lapply(l, FUN = myline2)

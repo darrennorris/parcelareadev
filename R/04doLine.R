@@ -35,8 +35,8 @@ dfline <- function(x) {
                           coord_y = x$lead_y)
               )
 }
-require(plyr);require(dplyr)
-dfla <- ddply(dfl,c("plot_id"),.fun = dfline)
+
+dfla <- plyr::ddply(dfl,c("plot_id"),.fun = dfline)
 
 # make SpatialLinesDataFrame
  myline <- function(x){
@@ -45,7 +45,7 @@ dfla <- ddply(dfl,c("plot_id"),.fun = dfline)
    Lines(list(Line(x)), x$row_id[1L])
  }
 
-lsp <- dlply(dfla, c("plot_id", "row_id"), myline)
+lsp <- plyr::dlply(dfla, c("plot_id", "row_id"), myline)
 
 lines <- SpatialLines(lsp)
 data <- data.frame(id = unique(dfla$row_id))

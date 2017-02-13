@@ -4,7 +4,7 @@
 \alias{area_results}
 \title{area_results}
 \usage{
-area_results(results_list = list_res, make_shape = FALSE)
+area_results(results_list, make_shape = FALSE)
 }
 \arguments{
 \item{results_list}{List of results from \code{area_calc}.}

@@ -7,6 +7,8 @@
 #' @param make_shape Logical, should shapes be exported.
 #'
 #' @return Exports .csv of calulated area values and .pdfs with figures for checking.
+#' @importFrom grDevices dev.off pdf
+#' @importFrom utils write.csv2
 #' @export
 #'
 #' @examples
@@ -33,7 +35,7 @@
 #' parcelareadev::exp_results(results_list = list_res, 
 #'                            pcoords = pc, exp_KML = TRUE)                                       
 #' }
-area_results <- function(results_list = list_res, make_shape = FALSE){
+area_results <- function(results_list, make_shape = FALSE){
    # check results valid
    if(class(results_list)=="logical" | 
      class(names(results_list))=="logical" |
@@ -42,17 +44,16 @@ area_results <- function(results_list = list_res, make_shape = FALSE){
    }
   
   # check that buffers have been created
-  require(rlist)
-  if(length(rlist::list.find(list_res[1], 
+  if(length(rlist::list.find(results_list[1], 
                       class(buff_SpatialLinesAll$buf_22m)=="SpatialPolygons")) == 0 | 
-     length(rlist::list.find(list_res[1], 
+     length(rlist::list.find(results_list[1], 
                       class(buff_SpatialLinesAll$buf_20m)=="SpatialPolygons")) == 0 |
-     length(rlist::list.find(list_res[1], 
+     length(rlist::list.find(results_list[1], 
                       class(buff_SpatialLinesAll$buf_10m)=="SpatialPolygons")) == 0) 
     stop("Buffer not created. Check option faixa_dist.
          Results must include 10m, 20m and 22m buffers")
   
-  if( length(rlist::list.find(list_res[1],
+  if( length(rlist::list.find(results_list[1],
                        class(ladobuff_SpatialLinesAll$'ladobuf_22m') =="SpatialPolygonsDataFrame"))==0) 
     stop("Buffer not created. Check option faixa_lado. Results must include 22m buffer")
   
@@ -60,12 +61,12 @@ area_results <- function(results_list = list_res, make_shape = FALSE){
   ## 3.1 resumo das parcelas: 
   # resultado = uma data.frame "df.resumo" com area em m2
   wdorig <- getwd()
-  df.resumo <- ldply(results_list,.fun = parcelareadev::out_resumo)
+  df.resumo <- plyr::ldply(results_list,.fun = parcelareadev::out_resumo)
   
     # com parallel, need to update
   #library(doMC)
   #registerDoMC(cores=4)
-  #df.resumo <- ldply(list_res,.fun = out_resumo,.parallel = TRUE)
+  #df.resumo <- ldply(results_list,.fun = out_resumo,.parallel = TRUE)
   
   # 3.2 figuras 
   # resultado = arquivos .pdf mostrando a linha central e area

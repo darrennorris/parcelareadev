@@ -8,6 +8,7 @@
 #' @param c_epsg EPSG code for projected buffers.
 #'
 #' @return Figure with polygons of widths.
+#' @importFrom graphics legend par text title
 #' @export
 #'
 #' @examples

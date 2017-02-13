@@ -8,6 +8,7 @@
 #' @param cl_epsg EPSG code for projected buffers.
 #'
 #' @return Figure with left and right buffers.
+#' @importFrom graphics legend par text title
 #' @export
 #'
 #' @examples

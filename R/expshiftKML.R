@@ -29,9 +29,10 @@ expshiftKML <- function(res_list = res_list, pcoords = pcoords, c_epsg = 3395){
 # write kml 
   s2$distm <- s2$seg_id * 10
   s2$lab <- paste(s2$plot_id, paste(s2$distm,"m"))
-  require(plotKML)
+
   p1 <- plotKML::plotKML(s2, folder.name = mypn,
                          file.name = linename, 
-                         labels = lab, colour = remove_all, open.kml = FALSE)
+                         labels = lab, colour = remove_all, 
+                         open.kml = FALSE)
 return(p1)
 }

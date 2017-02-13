@@ -4,7 +4,7 @@
 \alias{exp_results}
 \title{exp_results}
 \usage{
-exp_results(results_list = list_res, pcoords = pcoords, exp_KML = TRUE)
+exp_results(results_list, pcoords, exp_KML = TRUE)
 }
 \arguments{
 \item{results_list}{List of results from \code{area_calc}.}

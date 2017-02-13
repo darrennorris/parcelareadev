@@ -7,13 +7,13 @@
 dist2gcS(p1, p2, p3, r = 6378137)
 }
 \arguments{
-\item{p1}{}
+\item{p1}{Start of great circle path. longitude/latitude of point(s).}
 
-\item{p2}{}
+\item{p2}{End of great circle path. As above.}
 
-\item{p3}{}
+\item{p3}{Point away from the great cricle path. As for p2.}
 
-\item{r}{}
+\item{r}{radius of the earth; default = 6378137.}
 }
 \value{
 Signed distance between point and line i.e. cross track distance.
@@ -29,5 +29,7 @@ So returns signed values to indicate left or right, as used by \code{makelado}.
 }
 \examples{
 \dontrun{
+dist2gcs(c(0,0),c(90,90),c(80,80)
+dist2gcs(c(0,0),c(90,90),c(-80,80))
 }
 }
